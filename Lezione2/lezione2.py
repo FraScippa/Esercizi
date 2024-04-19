@@ -102,22 +102,44 @@ print(f"The guests are {number_invites}")
 
 items: list = []
 
+#start a loop
 while True:
     
-    question: str = input('please, write an item (write stop for ending): ').strip()
+    #ask an item 
+    item: str = input('please, write an item (write stop for ending): ').strip()
     
-    if question.lower() == 'stop':
+    #check, transforming item in lowercase and stop the loop 
+    if item.lower() == 'stop':
         print('Ending the program...')
         print('Final items:', items)
         break
-    elif question not in items:
-        items.append(question)
+    #add new item in items list
+    elif item not in items:
+        items.append(item)
         print(items)
 
 #6-1. Person: Use a dictionary to store information about a person you know. 
 #Store their first name, last name, age, and the city in which they live. 
 #You should have keys such as first_name, last_name, age, and city. 
 #Print each piece of information stored in your dictionary.
+
+#Welcome message
+print("### Please, write your personal information ###")
+
+person: dict = {}
+
+#add information request
+first_name: str = input('First Name: ').title()
+last_name: str = input('Last Name: ').title()
+age: int = int(input('Age(please, with numbers): '))
+city: str = input('City: ').title()
+
+if last_name not in person:
+    person.update({'First Name': first_name, 'Last Name': last_name, 'Age': age, 'City': city})
+    print(person)
+
+print('Thankyou')
+    
 
 #6-2. Favorite Numbers: Use a dictionary to store people’s favorite numbers. 
 #Think of five names, and use them as keys in your dictionary. 
