@@ -51,7 +51,7 @@ for person in invites:
     message: str = f"Ehy {person}, vuoi venire a cena?"
     print(message)
 
-'''print(invites)'''
+print(invites)
 
 #3-7. Shrinking Guest List: You just found out that your new dinner table won’t arrive in time for the dinner, 
 #and now you have space for only two guests.
@@ -62,15 +62,16 @@ for person in invites:
 #• Use del to remove the last two names from your list, so you have an empty list. 
 #Print your list to make sure you actually have an empty list at the end of your program.
 
-sorry: list = []
+"""sorry: list = []
 
 for idx, guest in enumerate(invites):
-    if idx < 3:
+    if idx < 5:
         print(guest)
     else:
         delate: str = invites.pop(idx)
-        sorry.append(delate)        
-print(sorry)
+        sorry.append(delate)   
+        print(f'Ehy {sorry}')
+print(delate)"""
 
 #3-8. Seeing the World: Think of at least five places in the world you’d like to visit.
 #• Store the locations in a list. Make sure the list is not in alphabetical order.
@@ -79,18 +80,39 @@ print(sorry)
 #• Show that your list is still in its original order by printing it.
 #• Use sorted() to print your list in reverse-alphabetical order without changing the order of the original list.
 #• Show that your list is still in its original order by printing it again.
-#• Use reverse()  to change the order of your list. Print the list to show that its order has changed.
-#• Use reverse() to change the order of your list again. Print the list to show it’s back to its original order.
-#• Use sort() to change your list so it’s stored in alphabetical order. Print the list to show that its order has been changed.
-#• Use sort() to change your list so it’s stored in reverse-alphabetical order.
+#•->Use reverse()  to change the order of your list. Print the list to show that its order has changed.
+#•->Use reverse() to change the order of your list again. Print the list to show it’s back to its original order.
+#•->Use sort() to change your list so it’s stored in alphabetical order. Print the list to show that its order has been changed.
+#•->Use sort() to change your list so it’s stored in reverse-alphabetical order.
 #Print the list to show that its order has changed.
 
+visit: list = [ 'Tokyo', 'Rio', 'Paris', 'NewYork']
+
+print(sorted(visit))
 
 #3-9. Dinner Guests: Working with one of the programs from Exercises 3, 
 #use len() to print a message indicating the number of people you’re inviting to dinner.
 
+number_invites: int = len(invites)
+print(f"The guests are {number_invites}")
+
 #3-10. Every Function: Think of things you could store in a list. For example, you could make a list of mountains,
-#rivers, countries, cities, languages, or anything else you’d like. Write a program that creates a list containing these items and then uses each function introduced in this chapter at least once.
+#rivers, countries, cities, languages, or anything else you’d like. 
+#Write a program that creates a list containing these items and then uses each function introduced in this chapter at least once.
+
+items: list = []
+
+while True:
+    
+    question: str = input('please, write an item (write stop for ending): ').strip()
+    
+    if question.lower() == 'stop':
+        print('Ending the program...')
+        print('Final items:', items)
+        break
+    elif question not in items:
+        items.append(question)
+        print(items)
 
 #6-1. Person: Use a dictionary to store information about a person you know. 
 #Store their first name, last name, age, and the city in which they live. 
