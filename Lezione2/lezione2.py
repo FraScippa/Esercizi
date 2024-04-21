@@ -256,6 +256,13 @@ else:
 #The keys for each city’s dictionary should be something like country, population, and fact. 
 #Print the name of each city and all of the information you have stored about it.
 
+cities: dict  = {'city1':{'City':'Hong Kong', 'Country':'China','Population':7496681, 'Fact': 'It is a peninsula with 236 islands'},
+                 'city2':{'City':'Sofia','Country':'Bulgaria','Population': 1287540, 'Fact': 'The city his named after the Hagia Sophia Church which is now a mosque'},
+                 'city3':{'City':'Glasgow','Country':'Scotland','Population': 1708000, 'Fact':'Peter Manuel is the most famous Scottish serial killer in the UK. He was born in Glasgow'}}
+
+print(f"{cities['city1']}\n{cities['city2']}\n{cities['city3']}")
+
+
 #6-12. Extensions: We’re now working with examples that are complex enough that they can be extended in any number of ways. 
 #Use one of the example programs from this chapter, and extend it by adding new keys and values, 
 #changing the context of the program, or improving the formatting of the output.
