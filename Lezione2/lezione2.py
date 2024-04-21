@@ -202,8 +202,6 @@ people.append(woman)
 for p in people:
     print(p)
 
-
-
 #6-8. Pets: Make several dictionaries, where each dictionary represents a different pet. 
 #In each dictionary, include the kind of animal and the owner’s name. 
 #Store these dictionaries in a list called pets. Next, loop through your list and as you do, 
@@ -243,7 +241,7 @@ else:
             continue
         
         if number in favorite_numbers['Favorite numbers']:
-            print('This number is already in your favorites. Please choose another.')
+            print('This number is already in your favorites. Please pick another number.')
         else:
             favorite_numbers['Favorite numbers'].append(number) #add numbers in the list
             n += 1
@@ -267,7 +265,18 @@ print(f"{cities['city1']}\n{cities['city2']}\n{cities['city3']}")
 #Use one of the example programs from this chapter, and extend it by adding new keys and values, 
 #changing the context of the program, or improving the formatting of the output.
 
+#a program that asks for your favorite numbers.
+favorite = []
+while len(favorite) < 5:
+    try: 
+        number = int(input('Type 5 favorite numbers: '))
+        favorite.append(number)
+    except ValueError:
+        print('Number invalid. Try again')
 
+print("Your favorite numbers are:")
+for numbers in favorite:
+    print(numbers)
 
 
 
