@@ -66,10 +66,10 @@ sorry: list = []
 
 for idx, guest in enumerate(invites):
     if idx < 5:
-        print('Ehy!',guest,'the dinner is cancelade, I\'m so sorry :(.')
+        print('Ehy!',guest,'the dinner is cancelled, I\'m so sorry :(.')
     else:
-        delate: str = invites.pop(idx)
-        sorry.append(delate)   
+        delete: str = invites.pop(idx)
+        sorry.append(delete)   
         
 #3-8. Seeing the World: Think of at least five places in the world you’d like to visit.
 #• Store the locations in a list. Make sure the list is not in alphabetical order.
@@ -106,7 +106,7 @@ items: list = []
 while True:
     
     #ask an item 
-    item: str = input('please, write an item (write stop for ending): ').strip()
+    item: str = input('please, write an item (type stop for ending): ').strip()
     
     #check, transforming item in lowercase and stop the loop 
     if item.lower() == 'stop':
@@ -151,7 +151,7 @@ favorite_numbers: dict = {}
 
 while True:
 
-    name: str = input('Enter your name: ')
+    name: str = input('Enter your name (type stop to end the program): ')
     number: int = int(input('Favorite number: '))
 
     if name.lower() == 'stop': 
@@ -202,13 +202,53 @@ people.append(woman)
 for p in people:
     print(p)
 
+
+
 #6-8. Pets: Make several dictionaries, where each dictionary represents a different pet. 
 #In each dictionary, include the kind of animal and the owner’s name. 
 #Store these dictionaries in a list called pets. Next, loop through your list and as you do, 
 #print everything you know about each pet. 
 
+dog: dict = {'Pet':'Dog','Name':'Noè','Breed':'BorderCollie','Owner':'Francesca'}
+cat: dict = {'Pet':'Cat','Name':'Taiga','Breed':'Unknow','Owner':'Alice'}
+rabbit: dict = {'Pet':'Rabbit','Name':'Snowflakes','Breed':'Dwarf Rabbit','Owner':"Nicolò"}
+horse: dict = {'Pet':'Horse','Name':'Pony','Breed':'Staffordshire','Owner':'Sophia'}
+
+pets: list = []
+
+pets.append(dog)
+pets.append(cat)
+pets.append(rabbit)
+pets.append(horse)
+
+for animals in pets:
+    print(animals)
+
 #6-10. Favorite Numbers: Modify your program from Exercise 6-2 so each person can have more than one favorite number. 
 #Then print each person’s name along with their favorite numbers.
+
+favorite_numbers = {'Favorite numbers': []}
+
+name = input('Enter your name (type stop to end the program): ')
+
+if name.lower() == 'stop':
+    print('Program ended.')
+else:
+    n = 0
+    while n < 5: 
+        try: 
+            number = int(input('Favorite number: '))
+        except ValueError: #resolution for the exception
+            print('Invalid input. Please enter a valid number.')
+            continue
+        
+        if number in favorite_numbers['Favorite numbers']:
+            print('This number is already in your favorites. Please choose another.')
+        else:
+            favorite_numbers['Favorite numbers'].append(number) #add numbers in the list
+            n += 1
+    
+    print(f"{name}'s favorite numbers are {favorite_numbers['Favorite numbers']}")
 
 #6-11. Cities: Make a dictionary called cities. Use the names of three cities as keys in your dictionary. 
 #Create a dictionary of information about each city and include the country that the city is in, 
