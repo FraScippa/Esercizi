@@ -62,17 +62,15 @@ print(invites)
 #• Use del to remove the last two names from your list, so you have an empty list. 
 #Print your list to make sure you actually have an empty list at the end of your program.
 
-"""sorry: list = []
+sorry: list = []
 
 for idx, guest in enumerate(invites):
     if idx < 5:
-        print(guest)
+        print('Ehy!',guest,'the dinner is cancelade, I\'m so sorry :(.')
     else:
         delate: str = invites.pop(idx)
         sorry.append(delate)   
-        print(f'Ehy {sorry}')
-print(delate)"""
-
+        
 #3-8. Seeing the World: Think of at least five places in the world you’d like to visit.
 #• Store the locations in a list. Make sure the list is not in alphabetical order.
 #• Print your list in its original order. Don’t worry about printing the list neatly; just print it as a raw Python list.
@@ -87,8 +85,10 @@ print(delate)"""
 #Print the list to show that its order has changed.
 
 visit: list = [ 'Tokyo', 'Rio', 'Paris', 'NewYork']
-
-print(sorted(visit))
+sort: list = visit.sort()
+reverse: list = visit.reverse()
+sorted: list = sorted(visit)
+print(f"normal list {visit} \n reverse {reverse} \n sorted {sorted} \n sort {sort} ")
 
 #3-9. Dinner Guests: Working with one of the programs from Exercises 3, 
 #use len() to print a message indicating the number of people you’re inviting to dinner.
@@ -134,10 +134,10 @@ last_name: str = input('Last Name: ').title()
 age: int = int(input('Age(please, with numbers): '))
 city: str = input('City: ').title()
 
-if last_name not in person:
-    person.update({'First Name': first_name, 'Last Name': last_name, 'Age': age, 'City': city})
-    print(person)
 
+person.update({'First Name': first_name, 'Last Name': last_name, 'Age': age, 'City': city})
+
+print(person)
 print('Thankyou')
     
 
@@ -147,6 +147,20 @@ print('Thankyou')
 #Print each person’s name and their favorite number. For even more fun, 
 #poll a few friends and get some actual data for your program.
 
+favorite_numbers: dict = {}
+
+while True:
+
+    name: str = input('Enter your name: ')
+    number: int = int(input('Favorite number: '))
+
+    if name.lower() == 'stop': 
+        print(favorite_numbers)
+        break
+    elif name not in favorite_numbers:
+        favorite_numbers.update({'Name': name, 'Favorite number': number})
+    
+
 #6-3. Glossary: A Python dictionary can be used to model an actual dictionary. 
 #However, to avoid confusion, let’s call it a glossary.
 #• Think of five programming words you’ve learned about in the previous chapters. 
@@ -155,6 +169,20 @@ print('Thankyou')
 #You might print the word followed by a colon and then its meaning, 
 #or print the word on one line and then print its meaning indented on a second line. 
 #Use the newline character (\n) to insert a blank line between each word-meaning pair in your output.
+
+glossary: dict = {'Variable': 'named storage location in a program that holds a value.', 
+                  'Function': 'named block of code that performs a specific task or operation.',
+                  'Loop': 'programming construct that repeats a block of code multiple times based on a condition.',
+                  'Comment': 'piece of text in a program that is ignored by the compiler or interpreter and is used for adding notes or explanations within the code.',
+                  'String': 'used to represent text data in computer programs.'}
+
+#print one word for line and the meaning indented on a second line
+for key, valute in glossary.items():
+    print('-',key,'-','\n',valute)
+
+#print the word followed by a colon and then its meaning
+for key, valute in glossary.items():
+    print("-",key,":",valute) 
 
 #6-7. People: Start with the program you wrote for Exercise 6-1. 
 #Make two new dictionaries representing different people, and store all three dictionaries in a list called people.
