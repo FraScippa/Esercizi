@@ -188,6 +188,20 @@ for key, valute in glossary.items():
 #Make two new dictionaries representing different people, and store all three dictionaries in a list called people.
 #Loop through your list of people. As you loop through the list, print everything you know about each person.
 
+#create 3 dictionaries
+person: dict = {'Name':'Anna','Surname':'Carletti','Age':25,'City':'Milan'}
+man: dict = {'Name':'Nicolò',"Surname":'Di Silvestro','Age':25,"City":'Rome'}
+woman: dict = {'Name':'Sophia Jade',"Surname":'Phippen','Age':26,'City':'Milan'}
+
+people: list = []
+
+people.append(person)
+people.append(man)
+people.append(woman)
+
+for p in people:
+    print(p)
+
 #6-8. Pets: Make several dictionaries, where each dictionary represents a different pet. 
 #In each dictionary, include the kind of animal and the owner’s name. 
 #Store these dictionaries in a list called pets. Next, loop through your list and as you do, 
