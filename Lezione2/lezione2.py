@@ -1,8 +1,6 @@
 # Francesca Scippa
 # 2024/04/17
 
-#print("Hello World")
-
 #3-4. Guest List: If you could invite anyone, living or deceased, to dinner, who would you invite? 
 #Make a list that includes at least three people you’d like to invite to dinner. 
 #Then use your list to print a message to each person, inviting them to dinner.
@@ -12,13 +10,6 @@ invites: list = ['Marco', 'Davide', 'Filippo', 'Christian']
 '''for person in invites:
     print(f"Ehy {person}, vuoi venire a cena?")'''
 
-'''messageM: str = f"Hey,{invites[0]}! Vorresti venire a cena?"
-messageD: str = f"Hey,{invites[1]}! Vorresti venire a cena?"
-messageF: str = f"Hey,{invites[2]}! Vorresti venire a cena?"
-messageC: str = f"Hey,{invites[3]}! Vorresti venire a cena?"'''
-
-#print(f"{messageM} \n {messageD} \n {messageF} \n {messageC} ")
-
 #3-5. Changing Guest List: You just heard that one of your guests can’t make the dinner, 
 # so you need to send out a new set of invitations. You’ll have to think of someone else to invite.
 #• Start with your program from Exercise 3-4. Add a print() call at the end of your program, stating the name of the guest who can’t make it.
@@ -26,7 +17,7 @@ messageC: str = f"Hey,{invites[3]}! Vorresti venire a cena?"'''
 #• Print a second set of invitation messages, one for each person who is still in your list.
 
 #change item 3, on the list
-invites[3]: str = 'Lorenzo'
+invites[3] = 'Lorenzo'
 
 #loop list item
 '''for person in invites:
@@ -44,7 +35,7 @@ invites[3]: str = 'Lorenzo'
 #change invites
 invites.insert(0, 'Giovanni')
 invites.insert(2, 'Angelo')
-invites.append('ALberto')
+invites.append('Alberto')
 
 #loop list item
 for person in invites:
@@ -66,7 +57,7 @@ sorry: list = []
 
 for idx, guest in enumerate(invites):
     if idx < 5:
-        print('Ehy!',guest,'the dinner is cancelled, I\'m so sorry :(.')
+        print('Ehy! ',guest,' the dinner is cancelled, I\'m so sorry :(.')
     else:
         delete: str = invites.pop(idx)
         sorry.append(delete)   
@@ -88,13 +79,13 @@ visit: list = [ 'Tokyo', 'Rio', 'Paris', 'NewYork']
 sort: list = visit.sort()
 reverse: list = visit.reverse()
 sorted: list = sorted(visit)
-print(f"normal list {visit} \n reverse {reverse} \n sorted {sorted} \n sort {sort} ")
+print(f"Normal list: {visit} \n reverse: {reverse} \n sorted: {sorted} \n sort: {sort} ")
 
 #3-9. Dinner Guests: Working with one of the programs from Exercises 3, 
 #use len() to print a message indicating the number of people you’re inviting to dinner.
 
 number_invites: int = len(invites)
-print(f"The guests are {number_invites}")
+print(f"The guests are: {number_invites}")
 
 #3-10. Every Function: Think of things you could store in a list. For example, you could make a list of mountains,
 #rivers, countries, cities, languages, or anything else you’d like. 
@@ -106,12 +97,12 @@ items: list = []
 while True:
     
     #ask an item 
-    item: str = input('please, write an item (type stop for ending): ').strip()
+    item: str = input('Please, type an item (type stop for ending): ').strip()
     
     #check, transforming item in lowercase and stop the loop 
     if item.lower() == 'stop':
         print('Ending the program...')
-        print('Final items:', items)
+        print('Final items: ', items)
         break
     #add new item in items list
     elif item not in items:
@@ -138,7 +129,7 @@ city: str = input('City: ').title()
 person.update({'First Name': first_name, 'Last Name': last_name, 'Age': age, 'City': city})
 
 print(person)
-print('Thankyou')
+print('Thank you!')
     
 
 #6-2. Favorite Numbers: Use a dictionary to store people’s favorite numbers. 
@@ -178,12 +169,14 @@ glossary: dict = {'Variable': 'named storage location in a program that holds a 
 
 #print one word for line and the meaning indented on a second line
 for key, valute in glossary.items():
-    print('-',key,'-','\n',valute)
+    print('-',key,'-','\n\t',valute.title())
+
+print("\n","*" *100, "\n")
 
 #print the word followed by a colon and then its meaning
 for key, valute in glossary.items():
-    print("-",key,":",valute) 
-
+    print("-",key,":",valute.title()) 
+    
 #6-7. People: Start with the program you wrote for Exercise 6-1. 
 #Make two new dictionaries representing different people, and store all three dictionaries in a list called people.
 #Loop through your list of people. As you loop through the list, print everything you know about each person.
