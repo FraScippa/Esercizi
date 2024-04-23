@@ -1,9 +1,9 @@
 
 #4-1. Pizzas: Think of at least three kinds of your favorite pizza. Store these pizza names in a list, and then use a for loop to print the name of each pizza.
 #• Modify your for loop to print a sentence using the name of the pizza, instead of printing just the name of the pizza.
-#For each pizza, you should have one line of output containing a simple statement like I like pepperoni pizza.
+#  For each pizza, you should have one line of output containing a simple statement like I like pepperoni pizza.
 #• Add a line at the end of your program, outside the for loop, that states how much you like pizza. 
-#The output should consist of three or more lines about the kinds of pizza you like and then an additional sentence, such as I really love pizza!
+#  The output should consist of three or more lines about the kinds of pizza you like and then an additional sentence, such as I really love pizza!
 
 pizzas: list = ['capricciosa','diavola','margherita']
 
@@ -15,7 +15,7 @@ for pizza in pizzas:
 #Store the names of these animals in a list, and then use a for loop to print out the name of each animal.
 #• Modify your program to print a statement about each animal, such as A dog would make a great pet.
 #• Add a line at the end of your program, stating what these animals have in common. You could print a sentence, 
-#such as Any of these animals would make a great pet!
+#  such as Any of these animals would make a great pet!
 
 animals: list = ['dog','cat','horse']
 
@@ -83,8 +83,8 @@ print(f'The last three items in the list are: {lista[-1]}, {lista[-2]}, {lista[-
 #• Add a new pizza to the original list.
 #• Add a different pizza to the list friend_pizzas.
 #• Prove that you have two separate lists. Print the message My favorite pizzas are:, 
-#and then use a for loop to print the first list. Print the message My friend’s favorite pizzas are:, 
-#and then use a for loop to print the second list. Make sure each new pizza is stored in the appropriate list.
+#  and then use a for loop to print the first list. Print the message My friend’s favorite pizzas are:, 
+#  and then use a for loop to print the second list. Make sure each new pizza is stored in the appropriate list.
 
 friend_pizzas: list = pizzas.copy() #copy the list pizzas
 
@@ -92,7 +92,7 @@ pizzas.append('crostino') #add a new pizza to the first list
 friend_pizzas.append('napoli') #add new pizza to the list friend_pizzas
 
 print(f'My favorite pizzas are: {pizzas}')
-print(f'My friend’s favorite pizzas are: {friend_pizzas}')
+print(f'My friend\’s favorite pizzas are: {friend_pizzas}')
 
 #4-12. More Loops: All versions of foods.py in this section have avoided using for loops when printing, to save space. 
 #Choose a version of foods.py, and write two for loops to print each list of foods.
@@ -114,7 +114,7 @@ print(f'{first_course}--{second_course}')
 #print("\nIs car == 'audi'? I predict False.")
 #print(car == 'audi')
 #• Look closely at your results, and make sure you understand why each line
-#evaluates to True or False.
+#  evaluates to True or False.
 #• Create at least 10 tests. Have at least 5 tests evaluate to True and another
 #5 tests evaluate to False.
 
@@ -162,4 +162,18 @@ if shoes == shoes and shoes != shoes1:
     print(shoes == 'Adidas')
     print(f"Is {shoes} == Nike? I predict False")
     print(shoes== 'Nike')
+
+#5-2. More Conditional Tests: You don’t have to limit the number of tests you create to 10. 
+#If you want to try more comparisons, write more tests and add them
+#to conditional_tests.py. Have at least one True and one False result for each of the following:
+#• Tests for equality and inequality with strings
+#• Tests using the lower() method
+#• Numerical tests involving equality and inequality, greater than and less
+#  than, greater than or equal to, and less than or equal to
+#• Tests using the and keyword and the or keyword
+#• Test whether an item is in a list
+#• Test whether an item is not in a list
+
+
+
 
