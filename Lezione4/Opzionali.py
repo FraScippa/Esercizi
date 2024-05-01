@@ -79,6 +79,8 @@ def guess_the_number(start: int, stop: int) -> None:
         elif diff > 20:
             t += 1
             print("Completely changes number")
+        if t == 10:
+            print(f"You Lose!! The number is: {n_random}")
             
 #print(guess_the_number(1, 10))
 
