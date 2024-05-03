@@ -37,12 +37,13 @@ def is_subsequence(s: str, t: str) -> bool:
         
         if s[index] == t[index2]:
             index += 1
-        index2 += 1
+        else:
+            index2 += 1
     
     return index == len(s)
 
 #print(is_subsequence("abc", "ahbgdc"))
-
+#print(is_subsequence("", "ahbgdc"))
 
 def moltiplication(x: float, y: float) -> float:
     """Moltiplication"""
@@ -143,7 +144,7 @@ def  word_frequency(text: str, stopwords: list[str]) -> dict[str, int]:
 #Ad esempio, se nums è [1, 3, 2, 2, 5, 2, 3, 7], la sottosequenza armonica 
 #più lunga è [3, 2, 2, 2, 3]. La funzione dovrebbe restituire 5 (la lunghezza di questa sottosequenza).
 
-from collections import Countr
+from collections import Counter
 
 def find_1hs(notes: list[int]) -> int:
     
@@ -178,3 +179,7 @@ def third_max(gems: list[int]) -> int:
         return gems[2]
     else:
         return[0]
+
+
+
+
