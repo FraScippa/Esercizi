@@ -1,88 +1,189 @@
 #Francesca Scippa
-#03-05-2024
 
-#Alberi di ricerca binaria. 
+#07-05-2024
 
-def binary_search(array: list[int], x:int) -> int: #questo ci mette molto ma i sistema non crasha
-    low = 0
-    high = len(array)
-    while low < high:
-        mid = (low + high) // 2
-        if array[mid] == x:
-            return mid
-        else:
-            if x > array[mid]:
-                low = mid + 1
-            else:
-                high = mid - 1
-    return None
-            
-#array.index(x) #per trovare tramire indice(solo per le liste ordinate). Fa il codice sopra con la funzione .index()
+class Person:
 
-#se non ordinata
+    def __init__(self, name: str, age: int, height: float):
 
-def search(array: list[int], x : int) -> int:
-    for i in range(len(array)):
-        if array[i] == 1:
-            return i
-        else:
-            return None
-
-
-def binary_search_recursive(array: list[int], x:int) -> int:
-    return _binary_search_recursive(array, x, 0, len(array))
-
-def _binary_search_recursive(array: list[int], x:int, low: int, high: int) -> int:
-    if low > high:
-        return None
+        self.name: str = name
+        self.age: int = age
+        self.height: float = height
+        #self.hobby: set[str] = set{}
     
-    mid = (low + high) // 2
-    if x == array[mid]:
-        return mid
-    elif x > array[mid]:
-        return _binary_search_recursive(array, x, mid + 1, high)
-    else:
-        return _binary_search_recursive(array, x, low, mid - 1)
+    def bulk_set_hobby(self, hobbies: list[str]):
+        self.hobby = self.hobby.union(set(hobbies)) #union ritorna un nuovo set
+        #self.hobby += hobbies
+        """for hobby in hobbies:
+            #self.hobby.append(hobby)
+            self.set_hobby(hobby)"""
+
+    def set_hobby(self, new_hobby: str):
+        self.hobby.add(set([new_hobby]))
+        #self.hobby.append(new_hobby)
+
+    def remove_hobby(self, old_hobby: str):
+        if old_hobby in self.hobby:
+            self.hobby.revome(old_hobby)
+
+    def __str__(self) -> str: #deve essere indentata nella Classe
+        return f"persona(name: {self.name}, age: {self.age}, height: {self.height})"
+
+lista : list = []
+
+alice: Person = Person("Alice W.", 45, 170)
+lista.append(alice)
+
+bob: Person = Person("Bob M.", 36, 169)
+lista.append(bob)
+
+"""if alice.age > bob.age:
+    print(alice.name)
+else:
+    print(bob.age)"""
+
+paolo: Person = Person("Paolo C.", 20, 186)
+lista.append(paolo)
+
+nicolò: Person = Person("Nicolò D.S", 25, 175)
+lista.append(nicolò)
+
+marco: Person = Person("Marco D.C", 50, 190)
+lista.append(marco)
+
+### Prende la persona più giovane ###
+
+index_min_age: int = 0
+youngest: int = float('inf')
+
+for i in range(len(lista)):
+    if lista[i].age < youngest:
+        youngest = lista[i].age
+        index_min_age = i
+
+persona = lista[index_min_age]
+
+#print(f"il nome della persona più giovane è {persona}") 
+"""con età {persona.age}"\
++ f altezza = {persona.height})"""
+
+class Student:
+
+    def __init__(self, name: str, studyProgram: str):
+
+        self.name: str = name
+        self.studyProgram: str =  studyProgram
+        self.age = 0
+        self.gender = None
+
+    def set_age(self, new_age: int):
+        self.age = new_age
+
+    def set_gender(self, new_gender: str):
+        self.gender = new_gender
+
+    def __str__(self) -> str:
+        return f"Il nome dello studente è {self.name} e partecipa al corso di {self.studyProgram},"\
+            +f" ha {self.age} anni, ed è {self.gender}"
+
+francesca: Student = Student("Francesca", "Cloud")
+francesca.set_gender("F")
+francesca.set_age(25)
+
+print(francesca)
+
+marco: Student = Student("Marco", "Cloud")
+marco.set_gender("M")
+marco.set_age(23)
+print(marco)
+
+walter: Student = Student("Walter", "Cloud")
+walter.set_gender("M")
+walter.set_age(33)
+print(walter)
+
+
+class Students:
     
-def visit_tree(tree: dict[int, list[int]], node: int):
-    print(node)
-    left_child, right_child = tree.get(node, [None, None])
-    if left_child: #is not in None:
-        visit_tree(tree, left_child) #per visitare prima destra e poi sinistra ovviamente scambi l'ordine
-    if right_child:
-        visit_tree(tree, right_child)
+    my_grades: list = []
+    student_grades: list = []
 
+    def __init__(self, name: str):
+        self.name: str = name
+        #self.grade: float = grade
+        #self.student_grades.append(grade)
 
-
-
-
-def visit_tree_iterative(tree: dict[int, list[int]], root: int):
+    def print_grade(self):
+        print(f"Il mio voto è {self.grade}")
     
-    stack: list[int] = [(root,0)] #Last-In-First-Out (LIFO)
-    avg_for_level: dict = {}
-    nodes_for_level: dict [int, float] = {}
+    def add_grades(self, grade: float):
+        self.my_grades.append(grade)
     
-    while stack: #while len(stack) > 0
-        
-        curr_node, curr_level = stack.pop(0) #se aggiungi 0 visiti a livelli, con lo 0 è Fisrt-Last-In-First-Out (FIFO)
-        
-        nodes_for_level[curr_level] = nodes_for_level.get(curr_level, 0) + 1
-        
-        left_child, right_child = tree.get(curr_node, [None, None])
-        
-        if right_child:
-            stack.append((right_child, curr_level + 1))
-            avg_for_level[curr_level] = avg_for_level.get(curr_level, 0) + left_child
-        
-        if left_child:
-            stack.append(left_child)
-            avg_for_level[curr_level] = avg_for_level.get(curr_level, 0) + right_child
-        
-        for level in avg_for_level:
-            avg_for_level[level]/= nodes_for_level[level]
-   
-    return avg_for_level
+    def grades_averange(self):
+        return sum(self.my_grades)/ len(self.my_grades)
 
-            
-tree = {4: [3,5], 3:[2,None], 5:[4.5,6], 2:[None, None], 4.5: [None, None], 6:[None, None]}
-print(visit_tree_iterative(tree,4))
+    @classmethod
+    def get_avg_grades(cls):
+
+        avg= sum(cls.student_grades) / len(cls.student_grades)
+        return avg
+
+francesca = Students(name = "Francesca")
+
+francesca.add_grades(9)
+francesca.add_grades(7)
+francesca.add_grades(10)
+
+print(Students.my_grades)
+#print(Students.student_grades)
+#francesca.print_grades()
+
+
+class Animal:
+
+    def __init__ (self, name: str, legs: int):
+        
+        self.name: str = name
+        self.legs: int = legs
+    
+    def setLegs(self, new_legs: int):
+        self.legs: int = new_legs
+
+    def get_legs(self) -> int:
+        return self.legs
+
+    def __str__(self):
+        return f"The animal's name is {self.name}, he has {self.legs} legs."
+        
+dog: Animal = Animal("Noè", 4)
+dog.setLegs(3)
+print(dog)
+
+class Food:
+
+    def __inti__(self, name: str, price: float, description: str):
+
+        self.name: str = name
+        self.price: float = price
+        self.description: str = description
+
+class Menu:
+
+    foods: list = []
+
+    def __init__(self, food: list[str]):
+        self.foods.append(food)
+    
+    def add_food(self, new_food: str):
+        self.foods.append(new_food)
+    
+    def remove_food(self, food_remove: str):
+        self.foods.remove(food_remove)
+
+    def __str__(self):
+        return f"Food:{self.name}/nPrice:{self.price}/nDescription:{self.description}"
+
+pizza: Food = Food("Margherita", 7.50, "Pizza's with mozzarella and tomatos")
+print(pizza)
+
+
