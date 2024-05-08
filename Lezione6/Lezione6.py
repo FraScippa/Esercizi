@@ -4,7 +4,7 @@
 
 class Person:
 
-    def __init__(self, name: str, age: int, height: float):
+    def __init__(self, name: str, age: int, height: float): #self convenzione per referenziare se stesso
 
         self.name: str = name
         self.age: int = age
@@ -158,32 +158,4 @@ class Animal:
 dog: Animal = Animal("Noè", 4)
 dog.setLegs(3)
 print(dog)
-
-class Food:
-
-    def __inti__(self, name: str, price: float, description: str):
-
-        self.name: str = name
-        self.price: float = price
-        self.description: str = description
-
-class Menu:
-
-    foods: list = []
-
-    def __init__(self, food: list[str]):
-        self.foods.append(food)
-    
-    def add_food(self, new_food: str):
-        self.foods.append(new_food)
-    
-    def remove_food(self, food_remove: str):
-        self.foods.remove(food_remove)
-
-    def __str__(self):
-        return f"Food:{self.name}/nPrice:{self.price}/nDescription:{self.description}"
-
-pizza: Food = Food("Margherita", 7.50, "Pizza's with mozzarella and tomatos")
-print(pizza)
-
 

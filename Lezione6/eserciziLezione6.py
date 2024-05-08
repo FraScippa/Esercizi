@@ -19,11 +19,11 @@ class Resturant:
         self.number_served: int = number_served
         
     #def __str__(self) -> str:
-        #return f"The resturant's name is {self.resturant_name}, and the cusine type is {self.cusine_type}" 
+        #return f"The resturant's name is {self.resturant_name}, and the cusine type is {self.cusine_type} They served {self.number_served} customers"" 
     
-    def descrive_resturant(self):
+    def descrive_resturant(self): #return self.__str___
         print(f"The resturant's name is {self.resturant_name}, and the cusine type is {self.cusine_type}. They served {self.number_served} customers")
-    
+         
     def open_resturant(self):
         print(f"The resturant {self.resturant_name} is Open!")
         
