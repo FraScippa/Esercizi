@@ -165,21 +165,3 @@ print("#"*100)
 #Add an attribute called flavors that stores a list of ice cream flavors.
 #Write a method that displays these flavors. Create an instance of IceCreamStand, and call this method. 
 
-
-
-
-
-
-       
-        
-
-
-
-
-
-
-
-        
-
-
-
