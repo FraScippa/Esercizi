@@ -10,8 +10,6 @@
 
 class Resturant:
     
-    number_served: int = 0
-    
     def __init__(self, resturant_name: str, cusine_type: str, number_served: int):
         
         self.resturant_name: str = resturant_name
@@ -21,7 +19,7 @@ class Resturant:
     #def __str__(self) -> str:
         #return f"The resturant's name is {self.resturant_name}, and the cusine type is {self.cusine_type} They served {self.number_served} customers"" 
     
-    def descrive_resturant(self): #return self.__str___
+    def descrive_resturant(self): 
         print(f"The resturant's name is {self.resturant_name}, and the cusine type is {self.cusine_type}. They served {self.number_served} customers")
          
     def open_resturant(self):
@@ -165,3 +163,37 @@ print("#"*100)
 #Add an attribute called flavors that stores a list of ice cream flavors.
 #Write a method that displays these flavors. Create an instance of IceCreamStand, and call this method. 
 
+<<<<<<< HEAD
+=======
+class IceCreamStand: 
+    
+    def __init__(self, resturant: Resturant):
+        
+        self.resturant: Resturant = resturant
+    
+    def flavors(self, flavors: list[str] ) -> str:
+        return f"The favors are: {self.flavors}"
+    
+gelato: IceCreamStand = IceCreamStand(tana_della_volpe)
+
+print(gelato.flavors( ['Fragola','Cioccolato','Vaniglia']))
+    
+    
+
+
+
+
+       
+        
+
+
+
+
+
+
+
+        
+
+
+
+>>>>>>> 9e16394 (.)
