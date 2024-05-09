@@ -163,8 +163,6 @@ print("#"*100)
 #Add an attribute called flavors that stores a list of ice cream flavors.
 #Write a method that displays these flavors. Create an instance of IceCreamStand, and call this method. 
 
-<<<<<<< HEAD
-=======
 class IceCreamStand: 
     
     def __init__(self, resturant: Resturant):
@@ -177,6 +175,8 @@ class IceCreamStand:
 gelato: IceCreamStand = IceCreamStand(tana_della_volpe)
 
 print(gelato.flavors( ['Fragola','Cioccolato','Vaniglia']))
+
+
     
     
 
@@ -196,4 +196,3 @@ print(gelato.flavors( ['Fragola','Cioccolato','Vaniglia']))
 
 
 
->>>>>>> 9e16394 (.)
