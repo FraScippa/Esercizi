@@ -19,8 +19,8 @@ savana: Fence = Fence(6000, 35, "Savana")
 artic: Fence = Fence(10000, -10, "Artic")
 
 zookeeper.add_animal(zebra, savana)
-#zookeeper.add_animal(leone, savana)
-#print(savana)
+zookeeper.add_animal(leone, savana)
+print(savana)
 
 zookeeper.add_animal(pinguin, artic)
 zookeeper.add_animal(leone, artic)
