@@ -63,19 +63,23 @@ def list_statistics(numbers: list[int]) -> int :
     
     return result
 
-#Scrivi una funzione che ruota gli elementi di una lista verso sinistra di un numero specificato k di posizioni. La rotazione verso sinistra significa che ciascun elemento della lista viene spostato a sinistra di una posizione e l'elemento iniziale viene spostato alla fine della lista. Per la rotazione utilizzare lo slicing e gestire il caso in cui il numero specificato di posizioni sia maggiore della lunghezza della lista.
+#Scrivi una funzione che ruota gli elementi di una lista verso sinistra di un numero specificato k di posizioni. 
+#La rotazione verso sinistra significa che ciascun elemento della lista viene spostato a sinistra di una posizione e 
+#l'elemento iniziale viene spostato alla fine della lista. 
+#Per la rotazione utilizzare lo slicing e gestire il caso in cui il numero specificato di posizioni sia maggiore della lunghezza della lista.
 
-def rotate_left(elements: list, k: int) -> list:
+def rotate_left(elements: list[int], k: int) -> list[int]:
     # cancella pass e scrivi il tuo codice
    
     lunghezza: int = len(elements)
-    newlist = []
-    if k > lunghezza:
-        k = k % lunghezza
-        
-    newlist = elements[k:] + elements[:k]
+    rotated = []
     
-    return newlist  
+    if k > lunghezza:
+        k = k % lunghezza #ricalcolo il nuovo valore di k. il resto della divisione sarà il numero di quante posizioni si sposteranno i numeri.       
+    rotated = elements[k:] + elements[:k] #questa operazione si "attiva" quando lo spostamento è più grande della lista, per evitare l'errore.
+    #spostiamo gli elementi
+    
+    return rotated 
 
 #Scrivi una funzione che somma tutti i numeri interi di una lista che sono maggiori di un dato valore intero definito threshold.
 
