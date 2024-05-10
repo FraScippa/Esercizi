@@ -18,7 +18,7 @@ print(zookeeper,zookeeper1)
 
 savana: Fence = Fence(60000, 35, "Savana")
 
-zookeeper.add_animal(savana, zebra)
+zookeeper.add_animal(zebra, savana)
 print(savana)
 
     
