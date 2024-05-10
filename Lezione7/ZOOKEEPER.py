@@ -49,8 +49,8 @@ class ZooKeeper:
         elif animal.dimention > fence.area:
             print("### OH NO!In this fence there is no more space!! ###")
 
-    #def clean(self, fance : Fence) -> float: #Il tempo di pulizia è il rapporto dell'area occupata dagli animali diviso l'area residua del recinto.
-    
+    #def clean(self, fance : Fence) -> float: 
+    #Il tempo di pulizia è il rapporto dell'area occupata dagli animali diviso l'area residua del recinto.
     
     def __str__(self) -> str:
         return f"\nZooKeeper: {self.name} {self.surname}\nID: {self.ID}\n"+"_"*30

@@ -15,7 +15,7 @@ class Zoo:
         self.guardians: list[ZooKeeper] = guardians
     
     def __str__(self):
-        return f"Fances: {self.fance}\nAnimals: {self.animals}\nGuardians: {self.guardians}"
+        return f"Guardians:\n{self.guardians}\nFances:\n{self.fance}\nwith animals:\n{self.animals}\n"
         
    # def describe_zoo(self):
        # return __str__()

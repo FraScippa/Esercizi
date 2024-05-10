@@ -16,5 +16,5 @@ class Fence:
            animals.append(animals)
         
     def __str__(self):
-        return f"Area: {self.area}\nTemperature: {self.temperature}\nHabitat: {self.habitat}\nAnimals: {self.animals}"
+        return '#'*30+f"\nArea: {self.area}\nTemperature: {self.temperature}\nHabitat: {self.habitat}\nAnimals: {self.animals}\n"+ '#'*30
        
