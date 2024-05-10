@@ -1,8 +1,7 @@
 #Francesca Scippa
-
 #08-05-2024
-
 #senza test!
+
 from ANIMALS import Animal
 from FENCE import Fence
 from ZOOKEEPER import ZooKeeper
