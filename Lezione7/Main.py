@@ -1,4 +1,4 @@
-from Zoo import Zoo
+from ZOO import Zoo
 from ANIMALS import Animal
 from FENCE import Fence
 from ZOOKEEPER import ZooKeeper
