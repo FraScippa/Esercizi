@@ -19,17 +19,24 @@ class ZooKeeper:
     
     def add_animal(self, animal: Animal, fence: Fence):
         
+        if animal.preferred_habitat.title() == fence.habitat:
+            fence.animals.append(animal.species)
+        else:
+            print("### This animal is not appropiriate for the habitat. ###")
+        
         if not isinstance(fence, Fence):
             print("### Type mismatch: 'fence' type not supported ###")
         if not isinstance(animal, Animal):
             print("### Type mismatch: 'animal' type not supported ###")
-        try:
-            if fence.area > animal.dimention:
-                fence.animals.append(animal.species)
-            else:
-                print("#### OH NO! Your fence is full! Remove an\some animal\s! ###")
-        except AttributeError:
-            print("### Wrong input order! The second parament doesn't have an area! ###")
+        
+            try:
+                if fence.area > animal.dimention:
+                    fence.animals.append(animal.species)
+                else:
+                    print("#### OH NO! Your fence is full! Remove an\some animal\s! ###")
+            except AttributeError:
+                print("### Wrong input order! The second parament doesn't have an area! ###")
+        
         
     def feed(self, animal: Animal, fence: Fence=None):
         

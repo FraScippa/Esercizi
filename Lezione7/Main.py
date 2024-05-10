@@ -1,11 +1,10 @@
-from ZOO import Zoo
 from ANIMALS import Animal
 from FENCE import Fence
 from ZOOKEEPER import ZooKeeper
 
 zebra: Animal = Animal("Giggino", "Zebra", 15, 90, 65, "Savana")
-leone: Animal = Animal ("Paolo", "Leone", 20, 60, 25, "Savana")
-
+leone: Animal = Animal ("Paolo", "Leone", 20, 40, 25, "Savana")
+pinguin: Animal = Animal("Skipper", "Pinguin", 12, 50, 35, "Artic")
 #print(zebra)
 #print("_"*100)
 #print(leone)
@@ -20,10 +19,9 @@ savana: Fence = Fence(6000, 35, "Savana")
 artic: Fence = Fence(10000, -10, "Artic")
 
 zookeeper.add_animal(zebra, savana)
-zookeeper.add_animal(leone, savana)
+#zookeeper.add_animal(leone, savana)
 #print(savana)
 
-zookeeper.feed(zebra, savana)
-leone.add_animals(artic)
+zookeeper.add_animal(pinguin, artic)
+zookeeper.add_animal(leone, artic)
 print(artic)
-
