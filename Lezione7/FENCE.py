@@ -3,7 +3,7 @@ from ANIMALS import Animal
 class Fence:
     
     def __init__(self, area: float, temperature: float, 
-                 habitat: str,  animals: list[Animal] = None):
+                 habitat: str,  animals: list[Animal] = None, animal: Animal = 0):
         
         self.area: float = area
         self.temperature: float = temperature
@@ -13,8 +13,8 @@ class Fence:
         if animals is None:
             pass
         else:
-           animals.append(animals)
+           animals.append(animal)
         
     def __str__(self):
-        return '#'*30+f"\nArea: {self.area}\nTemperature: {self.temperature}\nHabitat: {self.habitat}\nAnimals: {self.animals}\n"+ '#'*30
+        return '#'*30+f"\nEmpty Area: {self.area}\nTemperature: {self.temperature}\nHabitat: {self.habitat}\nAnimals: {self.animals}\n"+ '#'*30
        

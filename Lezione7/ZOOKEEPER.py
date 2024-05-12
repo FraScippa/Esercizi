@@ -14,15 +14,14 @@ class ZooKeeper:
         else:
             self.ID: int = ID
    
-    def remove_animal(self, animal: Animal, fence: Fence):
-        fence.animals.remove(animal.species)
-    
     def add_animal(self, animal: Animal, fence: Fence):
         
         if animal.preferred_habitat.title() == fence.habitat:
+            fence.area -= animal.dimention
             fence.animals.append(animal.species)
+        
         else:
-            print("### This animal is not appropiriate for the habitat. ###")
+            print(f"### {animal.species}: This animal is not appropiriate for {fence.habitat}. ###")
         
         if not isinstance(fence, Fence):
             print("### Type mismatch: 'fence' type not supported ###")
@@ -37,6 +36,9 @@ class ZooKeeper:
             except AttributeError:
                 print("### Wrong input order! The second parament doesn't have an area! ###")
         
+    def remove_animal(self, animal: Animal, fence: Fence):
+        fence.area += animal.dimention
+        fence.animals.remove(animal.species)
         
     def feed(self, animal: Animal, fence: Fence=None):
         
@@ -49,7 +51,23 @@ class ZooKeeper:
         elif animal.dimention > fence.area:
             print("### OH NO!In this fence there is no more space!! ###")
 
-    #def clean(self, fance : Fence) -> float: 
+    def clean(self, fence : Fence) -> float: 
+        total_dimention: int = 0
+        
+        for animal in fence.animals:
+            total_dimention += animal.get_dimention()
+        empty_area = fence.area - total_dimention
+        
+        if empty_area == 0:
+            cleaning_time = fence.area
+        else:
+            cleaning_time = fence.area/empty_area
+        
+        fence.animals.clear()
+        print(f'The cleaning time is: {cleaning_time}')
+            
+        
+
     #Il tempo di pulizia è il rapporto dell'area occupata dagli animali diviso l'area residua del recinto.
     
     def __str__(self) -> str:
