@@ -316,11 +316,34 @@ die20: Die = Die(20)
 
 for roll in range(10):
     print(die10.roll_die())        
-print('_'*30)             
+print('_'*30)          
 
 #9-14. Lottery: Make a list or tuple containing a series of 10 numbers and 5 letters. 
 #Randomly select 4 numbers or letters from the list and print a message saying 
 #that any ticket matching these 4 numbers or letters wins a prize.
+
+class Lottery:
+
+    def __init__(self, ticket: tuple[int,str]):
+
+        self.ticket: tuple[int,str] = ticket
+
+    def random_ticket(self) -> str:
+        ticket0: list[int,str] =random.sample(self.ticket,4)
+        return "Any ticket matching these 4 numbers or letters wins a prize."
+        
+letters: tuple[str] = ('A','B','C','D','F')
+ticket: tuple[int,str] = ()
+
+for n in range(11):
+    number: tuple[int] = (n, )
+    ticket += number
+
+ticket += letters
+
+ticket1: Lottery = Lottery(ticket)
+
+print(ticket1.random_ticket())
 
 
 
