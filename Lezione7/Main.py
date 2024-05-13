@@ -16,16 +16,15 @@ zookeeper1: ZooKeeper = ZooKeeper("Nicolò", "Di Silvestro", '07080')
 
 #print(zookeeper,zookeeper1)
 
-savana: Fence = Fence(60, 35, "Savana")
+savana: Fence = Fence(6000, 35, "Savana")
 artic: Fence = Fence(10000, -10, "Artic")
 
-#zookeeper.add_animal(zebra, savana)
+zookeeper.add_animal(zebra, savana)
 #zookeeper.add_animal(leone, savana)
-zookeeper.add_animal(gazzella, savana)
-#zookeeper.clean(savana)
-
+#zookeeper.add_animal(gazzella, savana)
+zookeeper.feed(zebra)
 
 #zookeeper.remove_animal(zebra, savana)
- #zookeeper.remove_animal(leone, savana)
+#zookeeper.remove_animal(leone, savana)
 print(savana)
 

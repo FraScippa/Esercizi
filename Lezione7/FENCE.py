@@ -14,7 +14,10 @@ class Fence:
             pass
         else:
            animals.append(animal)
-        
+    
+    def get_area(self):
+        return self.area  
+    
     def __str__(self):
         return '#'*30+f"\nEmpty Area: {self.area}\nTemperature: {self.temperature}\nHabitat: {self.habitat}\nAnimals: {self.animals}\n"+ '#'*30
        
