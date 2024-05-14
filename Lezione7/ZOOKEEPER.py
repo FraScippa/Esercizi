@@ -13,7 +13,13 @@ class ZooKeeper:
             self.ID = int(ID)
         else:
             self.ID: int = ID
-   
+    
+    def get_animal_species(self, species_name,animals):
+        for animal in animals:
+            if animal.species == species_name:
+                return animal
+        return None
+    
     def add_animal(self, animal: Animal, fence: Fence):
         
         if not isinstance(fence, Fence):
@@ -22,7 +28,7 @@ class ZooKeeper:
             print("### Type mismatch: 'animal' type not supported ###")
         
         if animal.preferred_habitat.title() != fence.habitat:
-            print(f"### {animal.species}: This animal is not appropiriate for {fence.habitat}. ###")
+            print(f"### {animal.species}: This animal isn't appropiriate for {fence.habitat}. ###")
         
         try:
             if fence.area > animal.dimention:
@@ -35,25 +41,23 @@ class ZooKeeper:
             print("### Wrong input order! The second parament doesn't have an area! ###")
         
     def remove_animal(self, animal: Animal, fence: Fence):
-        fence.area += animal.dimention
-        fence.animals.remove(animal)
+        if animal in fence.animals:
+            fence.area += animal.dimention
+            fence.animals.remove(animal)
         
     def feed(self, animal: Animal):
-        if animal.health != 100:
-            if animal.dimention < self.fence.get_area():
-                animal.health *= 1.01  
-                animal.dimention *= 1.02  
-                print(f"Health: {animal.health}\nAnimal Dimension: {animal.dimension}")
-            else:
-                print("### OH NO! In this fence there is no more space to feed the animal!! ###")
-        else:
-            print("Your animal is full health!")
+        if animal.health < 100:
+            new_animal_health = animal.health * 1.01  
+            new_animal_dimention = animal.dimention * 1.02  
             
-    def get_animal_species(self, species_name, animals: Fence):
-        for animal in animals:
-            if animal.species == species_name:
-                return animal
-        return None
+            if new_animal_dimention < self.fence.area:
+               animal.health = new_animal_health
+               animal.dimention = new_animal_dimention
+               print(f"Health: {animal.health}\nAnimal Dimension: {animal.dimension}")
+            else:
+                print("### OH NO! In this fence there is no more space to feed this animal!! ###")
+        else:
+            print("### Your animal is full health! ###")
     
     def clean(self, fence : Fence) -> float: 
         total_dimention = 0
@@ -77,9 +81,5 @@ class ZooKeeper:
         fence.animals.clear()
         print(f'The cleaning time is: {cleaning_time}')
             
-        
-
-    #Il tempo di pulizia è il rapporto dell'area occupata dagli animali diviso l'area residua del recinto.
-    
     def __str__(self) -> str:
-        return f"\nZooKeeper: {self.name} {self.surname}\nID: {self.ID}\n"+"_"*30
+        return f"\nZooKeeper: {self.name} {self.surname}ID: {self.ID}\n"+"_"*30

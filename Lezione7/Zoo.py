@@ -1,6 +1,5 @@
 #Francesca Scippa
 #08-05-2024
-#senza test!
 
 from ANIMALS import Animal
 from FENCE import Fence
@@ -15,7 +14,7 @@ class Zoo:
         self.guardians: list[ZooKeeper] = guardians
     
     def __str__(self):
-        return f"Guardians:\n{self.guardians}\nFances:\n{self.fance}\nwith animals:\n{self.animals}\n"
+        print(f"Guardians:\n{self.guardians}\nFances:\n{self.fance}\nwith animals:\n{self.animals}\n")
         
-   # def describe_zoo(self):
-       # return __str__()
+    def describe_zoo(self):
+        return self.__str__()
