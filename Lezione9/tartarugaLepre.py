@@ -133,16 +133,9 @@ while T < 70 or H < 70:
     T = tartaruga(T)
     H = tartaruga(H)
 
-
 if T > H:
    print("TORTOISE WINS! || VAY!!!")
 elif T == H:
     print("IT'S A TIE.")
 else:
     print("HARE WINS || YUCH!!!")
-    
-
-
-
-
-
