@@ -77,43 +77,47 @@ def lepre(H) -> int:
     
     if H < 70 and stamina <= 100:
         if 1 <= die <= 2 and stamina < 90:
-            H = 0
-            print("Lepre!Non si muove")
-            if stamina + 10 < 90:
+            if stamina < 90:
+                H = 0
+                print("Lepre!Non si muove")
                 stamina +=10
             else:
-                print("The Lepre, dosen't have enough stamina")  
+                print("The Lepre, doesn't have enough stamina")  
             
-        elif 3 <= die <= 4 and stamina < 100:
-            print("Lepre!Avanza di 9")
-            if stamina < 15:
-                H += 0
-                stamina += 0
-                print("The Lepre, dosen't have enough stamina")
-            else:
+        elif 3 <= die <= 4:
+            if stamina >= 15:
+                print("Lepre!Avanza di 9")
                 H += 9
                 stamina -= 15
-             
-        elif die == 5 and stamina < 100:
-            if H > 12:
-                H -= 12
-                print("Lepre!Arretra di 12 quadrati")
-            elif stamina < 20:
-                H = 0
-                stamina -= 20
-                print("The Lepre, dosen't have enough stamina")
-        
-        elif 6 <= die <= 8 and stamina < 100:
-            H += 1
-            print("Lepre!Avanza di 1 quadrato.")
-            stamina -= 5
-        else:
-            if H > 2 and stamina < 100:
-                H -= 2
-                print("Lepre!Arretra di 2 quadrati")
-                stamina -= 8
             else:
-                H = 0
+                print("The Lepre, doesn't have enough stamina")
+                
+        elif die == 5:
+            if H > 12 and stamina >= 20:
+                H -= 12
+                stamina -= 20
+                print("Lepre!Arretra di 12 quadrati")
+            else:
+                H = H
+                print("The Lepre, doesn't have enough stamina")
+        
+        elif 6 <= die <= 8:
+            if stamina >= 5:
+                H += 1
+                stamina -= 5
+                print("Lepre!Avanza di 1 quadrato.")
+            else:
+                print("The Lepre, doesn't have enough stamina")
+        
+            if H > 2 and stamina >= 8:
+                H -= 2
+                stamina -= 8
+                print("Lepre!Arretra di 2 quadrati")
+            else:
+                H = H
+                print("The Lepre, doesn't have enough stamina")
+        else:
+            H = 0
             
     elif H >= 70:
         H = 70
@@ -122,7 +126,7 @@ def lepre(H) -> int:
 
 def meteo(T,H):
     
-    if T % 10 == 0 or H % 10 == 0:
+    if T % 10 == 0 and H % 10 == 0:
         t: int =  random.randint(1,2)
         if t == 1:
             T -= 1
@@ -130,6 +134,7 @@ def meteo(T,H):
             print("It's raining!")
         elif t == 2:
             print('Sunny day!')
+        return T,H
     
 print("BANG !!!!! AND THEY'RE OFF !!!!!")
 
@@ -141,16 +146,7 @@ while True:
     position(T,H)
     T = tartaruga(T)
     H = lepre(H)
-    
-    if T % 10 == 0 or H % 10 == 0:
-        t: int =  random.randint(1,2)
-        if t == 1:
-            T -= 1
-            H -= 2
-            print("It's raining!")
-        elif t == 2:
-            print('Sunny day!')
-    
+    meteo(T,H)
     if T == 69:
         break
     if H == 69:
