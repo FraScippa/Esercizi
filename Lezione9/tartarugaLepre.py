@@ -13,6 +13,7 @@ def position(T,H) -> None:
         lista[H] = 'H'
     else:
         H = 70
+    
     if T == H:
         lista[T] = 'Ouch!'
     
@@ -23,15 +24,18 @@ def position(T,H) -> None:
         for k,v in ostacoli.items():
             if lista[T] in ostacoli:
                 lista[T] = T - v
+                lista[T] = 'T'
             if lista[H] in ostacoli:
                 lista[H] = H - v
+                lista[H] = 'H'
         
         for k,v in bonus.items():
             if lista[T] in bonus:
                 lista[T] = T + v
+                lista[T] = 'T'
             if lista[H] in bonus:
                 lista[H] = H + v
-        
+                lista[H] = 'H'
     print(lista)
     
 
@@ -72,27 +76,31 @@ def lepre(H) -> int:
     stamina: int = 100
     
     if H < 70 and stamina <= 100:
-        if 1 <= die <= 2 and stamina < 100:
+        if 1 <= die <= 2 and stamina < 90:
             H = 0
             print("Lepre!Non si muove")
-            if stamina + 10 < 100:
+            if stamina + 10 < 90:
                 stamina +=10
             else:
                 print("The Lepre, dosen't have enough stamina")  
             
         elif 3 <= die <= 4 and stamina < 100:
-            H += 9
             print("Lepre!Avanza di 9")
-            stamina -= 15
             if stamina < 15:
-                print("The Lepre, dosen't have enough stamina")  
+                H += 0
+                stamina += 0
+                print("The Lepre, dosen't have enough stamina")
+            else:
+                H += 9
+                stamina -= 15
+             
         elif die == 5 and stamina < 100:
             if H > 12:
                 H -= 12
                 print("Lepre!Arretra di 12 quadrati")
-                stamina -= 20
             elif stamina < 20:
-                H = 1
+                H = 0
+                stamina -= 20
                 print("The Lepre, dosen't have enough stamina")
         
         elif 6 <= die <= 8 and stamina < 100:
@@ -105,7 +113,7 @@ def lepre(H) -> int:
                 print("Lepre!Arretra di 2 quadrati")
                 stamina -= 8
             else:
-                H = 1
+                H = 0
             
     elif H >= 70:
         H = 70
@@ -113,12 +121,13 @@ def lepre(H) -> int:
     return H
 
 def meteo(T,H):
+    
     if T % 10 == 0 or H % 10 == 0:
         t: int =  random.randint(1,2)
         if t == 1:
-            print("It's raining!")
             T -= 1
             H -= 2
+            print("It's raining!")
         elif t == 2:
             print('Sunny day!')
     
@@ -127,11 +136,25 @@ print("BANG !!!!! AND THEY'RE OFF !!!!!")
 T = 0
 H = 0
 
-while T < 70 or H < 70:
+while True:
+    
     position(T,H)
-    meteo(T,H)
     T = tartaruga(T)
-    H = tartaruga(H)
+    H = lepre(H)
+    
+    if T % 10 == 0 or H % 10 == 0:
+        t: int =  random.randint(1,2)
+        if t == 1:
+            T -= 1
+            H -= 2
+            print("It's raining!")
+        elif t == 2:
+            print('Sunny day!')
+    
+    if T == 69:
+        break
+    if H == 69:
+        break
 
 if T > H:
    print("TORTOISE WINS! || VAY!!!")
