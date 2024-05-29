@@ -329,7 +329,7 @@ class Lottery:
         self.ticket: tuple[int,str] = ticket
 
     def random_ticket(self) -> str:
-        ticket0: list[int,str] =random.sample(self.ticket,4)
+        ticket0: list[int] =random.sample(self.ticket,4)
         return "Any ticket matching these 4 numbers or letters wins a prize."
         
 letters: tuple[str] = ('A','B','C','D','F')

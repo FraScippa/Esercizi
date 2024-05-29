@@ -147,9 +147,9 @@ while True:
     T = tartaruga(T)
     H = lepre(H)
     meteo(T,H)
-    if T == 69:
+    if T == 70:
         break
-    if H == 69:
+    if H == 70:
         break
 
 if T > H:
