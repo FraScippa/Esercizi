@@ -55,10 +55,59 @@ coccodrillo1: Coccodrillo = Coccodrillo (nome = 'Giovanni')
 
 lista_animali: list[AbcAnimal] = [cane1, gatto1, coccodrillo1]
 
-for animale in lista_animali:
+#for animale in lista_animali:
 
-    animale.verso()
+    #animale.verso()
 
 #cane1.verso()
 #gatto1.verso()
 #coccodrillo1.verso()
+
+i: int = 0
+
+
+assert 0 == 0, f"The value must be equal to 0 instead is {i}" #parola chiave, posso inserire una condizione. Verifica la condizione dopo Assert, se è falsa lancia una condizione AssertionError
+#il messaggio verrà printato dopo l'eccezione. Se la condizione è vera non succede nulla.
+
+
+def check_sqrt(func, input, result):
+
+    n = func(input)
+
+    assert n == result, f"Errore the expected value is: {result} Your function returns: {n}"
+
+def constant(input) -> int:
+
+    return -1
+
+from math import sqrt
+
+check_sqrt(sqrt, 4, 2) #se è vero non succede nulla!!
+#check_sqrt(sqrt, 9, 2)
+
+
+class Calculation:
+
+    def __init__(self, a: float, b: float) -> None:
+        self.a: float = a
+        self.b: float = b
+
+
+    def get_sum(self):
+        return self.a + self.b
+    
+    def get_difference(self):
+        return self.a - self.b
+    
+    def get_product(self):
+        return self.a * self.b
+    
+    def get_quotient(self):
+        return self.a / self.b
+    
+
+    
+
+
+
+
