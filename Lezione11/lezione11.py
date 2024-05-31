@@ -1,3 +1,8 @@
+#Francesca Scippa
+#30-05-2024
+
+#SISTEMA DI PRENOTAZIONE CINEMA#
+
 class Film:
 
     def __init__(self, titolo: str, durata: float):
@@ -67,6 +72,39 @@ film_1: Film = Film('Ocean Twelve', 1.49)
 film_2: Film = Film('Ciao', 1.46)
 sala_1: Sala = Sala(4, film_1, 1790, 11)
 sala_2: Sala = Sala(7, film_2, 1701, 100)
+
+
+#GESTIONE DI UN MAGAZZINO#
+
+
+class Prodotto:
+    def __init__(self, nome: str, quantita: int):
+        self.nome: str = nome
+        self.quantita: int = quantita
+
+    def __str__(self) -> str:
+        return f"Prodotto: {self.nome} | Quantità: {self.quantita}"
+
+
+class Magazzino:
+
+    def __init__(self):
+        self.magazzino: list[Prodotto] = []
+
+    def aggiungi_prodotto(self, new_prodotto: Prodotto):
+        if new_prodotto not in self.magazzino:
+            self.magazzino.append(new_prodotto)
+    
+    def cerca_prodotto(self, nome: str) -> Prodotto:
+        for prod in self.magazzino:
+            if nome == prod.nome:
+                return prod
+            
+    def verifica_disponibilità(self, nome: str) -> str:
+        
+
+
+
 
 
 
