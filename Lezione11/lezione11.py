@@ -48,16 +48,18 @@ class Cinema:
     
     def prenota_film(self, titolo_film: str, num_posti: int):
         for sala in self.sale:
-                if titolo_film != sala.film.titolo:
-                    sala.posti_rimanenti -= num_posti
-                    return f"Il tuo posto per {titolo_film}. è stato prenotato con successo!"
-                else:
-                    return f"Purtropo questo film non ha più posti disponibili."
+                if titolo_film == sala.film.titolo:
+                    if num_posti <= sala.get_posti_rimanenti():
+                        sala.prenota_posti(num_posti)
+                        return f"Il tuo posto per {titolo_film}. è stato prenotato con successo!"
+                    else:
+                        return f'Non ci sono abbastanza posti liberi per questo film: {titolo_film}'
+        return "Film Non Presente"       
     
     def __str__(self) -> str:
         s: str = ''
         for x in self.sale:
-            s += f' la sala è: {x}'
+            s += f'{x} '
         return s
         
 cinema_1: Cinema = Cinema()
@@ -66,17 +68,17 @@ film_2: Film = Film('Ciao', 1.46)
 sala_1: Sala = Sala(4, film_1, 1790, 11)
 sala_2: Sala = Sala(7, film_2, 1701, 100)
 
-sala_1.prenota_posti(5)
-
 print(sala_1.posti_disponibili())
-
 
 cinema_1.aggiungi_sala(sala_1)
 cinema_1.aggiungi_sala(sala_2)
 
-print(cinema_1.prenota_film('Ciao', 10))
-
 print(cinema_1)
+
+print(cinema_1.prenota_film('Ocean Twelve', 2))
+print(cinema_1.prenota_film('', 10))
+print(cinema_1.prenota_film('Ciao',1))
+
 
 
 
