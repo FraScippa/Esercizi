@@ -24,3 +24,4 @@ class TestCalc(unittest.TestCase):
 if __name__ == '__main__': #se la variabile 'name' è uguale alla dicitura 'main'.Se viene importato non viene eseguito
 
     unittest.main()        #ti permette di eseguire questa linea di codice, dopo aver esequito il file, se non viene eseguito viene ignorato
+

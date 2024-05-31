@@ -68,23 +68,8 @@ film_2: Film = Film('Ciao', 1.46)
 sala_1: Sala = Sala(4, film_1, 1790, 11)
 sala_2: Sala = Sala(7, film_2, 1701, 100)
 
-print(sala_1.posti_disponibili())
-
-cinema_1.aggiungi_sala(sala_1)
-cinema_1.aggiungi_sala(sala_2)
-
-print(cinema_1)
-
-print(cinema_1.prenota_film('Ocean Twelve', 2))
-print(cinema_1.prenota_film('', 10))
-print(cinema_1.prenota_film('Ciao',1))
 
 
 
-
-
-
-        
-    
 
     
