@@ -66,12 +66,7 @@ class Cinema:
         for x in self.sale:
             s += f'{x} '
         return s
-        
-cinema_1: Cinema = Cinema()
-film_1: Film = Film('Ocean Twelve', 1.49)
-film_2: Film = Film('Ciao', 1.46)
-sala_1: Sala = Sala(4, film_1, 1790, 11)
-sala_2: Sala = Sala(7, film_2, 1701, 100)
+    
 
 
 #GESTIONE DI UN MAGAZZINO#
@@ -84,7 +79,6 @@ class Prodotto:
 
     def __str__(self) -> str:
         return f"Prodotto: {self.nome} | Quantità: {self.quantita}"
-
 
 class Magazzino:
 
@@ -99,15 +93,18 @@ class Magazzino:
         for prod in self.magazzino:
             if nome == prod.nome:
                 return prod
-            
+        return "Il prodotto richiesto è inesistente."
+    
     def verifica_disponibilità(self, nome: str) -> str:
+        for p in self.magazzino:
+            if nome in p.nome and p.quantita > 0:
+                return "Il prodotto che stai cercando è disponibile"
+        return "Il prodotto non è disponibile"
+    
+    def __str__(self) -> str:
+        s: str = ''
+        for x in self.magazzino:
+            s += f'\n{x}\n'
+        return s
         
-
-
-
-
-
-
-
-
     
