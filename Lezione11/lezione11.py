@@ -10,15 +10,12 @@ class Film:
         self.titolo: str = titolo
         self.durata: float = durata
         
-
     def __str__(self) -> str:
         return f"{self.titolo} e dura: {self.durata}"
-
 
 class Sala:
 
     def __init__(self, n_sala: int, film: Film, posti_tot: int, posti_occ: int):
-        
         
         self.n_sala: int = n_sala
         self.film: Film = film
@@ -41,12 +38,12 @@ class Sala:
 
     def __str__(self) -> str:
         return f'Sala: {self.n_sala}, titolo: {self.film}, posti totali: {self.posti_rimanenti}'
+
 class Cinema:
 
     def __init__(self):
         self.sale: list[Sala] = []
-
-
+        
     def aggiungi_sala(self, sala: Sala):
         if sala not in self.sale:
             self.sale.append(sala)
@@ -67,10 +64,7 @@ class Cinema:
             s += f'{x} '
         return s
     
-
-
 #GESTIONE DI UN MAGAZZINO#
-
 
 class Prodotto:
     def __init__(self, nome: str, quantita: int):
