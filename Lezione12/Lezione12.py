@@ -105,7 +105,7 @@ class CatalogoFilm:
         return '## Il regista non è presente nel catalogo ##'
     
     def cerca_titolo_film(self, titolo: str):
-        results = []
+        results: list[str] = []
         for r in self.catalogo:
             for f in r.films:
                 if titolo.lower() in f.lower():
