@@ -49,7 +49,7 @@ class Biblioteca:
         else:
             print('Errore: non ci sono libri.')
 
-#Catalogo Film#
+#Catalogo Film# RIfallo senza usare la classe Regista
 
 class Regista:
     
