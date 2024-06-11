@@ -174,7 +174,8 @@ class Moto(Veicolo):
 
 class Specie:
     
-    def __init__(self,popolazione_iniziale: int, tasso_crescita: float):
+    def __init__(self, nome: str, popolazione_iniziale: int, tasso_crescita: float):
+        self.nome: str = nome
         self.popolazione_iniziale: float = popolazione_iniziale
         self.tasso_crescita: float = tasso_crescita
 
@@ -190,7 +191,7 @@ class Specie:
             self.cresci()
             densita: float = self.popolazione_iniziale/area_kmq
         
-        return anni 
+        return anni -1
                 
     def anni_per_superare(self, altra_specie: 'Specie'):
         anni: int = 0
@@ -200,17 +201,17 @@ class Specie:
             altra_specie.cresci()
             anni += 1
             if self.popolazione_iniziale > altra_specie.popolazione_iniziale:
-                return anni
+                return anni +1
                 
 class BufaloKlingon(Specie):
     
     def __init__(self, popolazione_iniziale: int, tasso_crescita: float):
-        super().__init__(popolazione_iniziale, tasso_crescita)
+        super().__init__("BufaloKlingon",popolazione_iniziale, tasso_crescita)
 
 class Elefante(Specie):
     
     def __init__(self, popolazione_iniziale: int, tasso_crescita: float):
-        super().__init__(popolazione_iniziale, tasso_crescita)
+        super().__init__("Elefante",popolazione_iniziale, tasso_crescita)
     
 ##################################################################################################################          
      
