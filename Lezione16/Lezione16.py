@@ -55,7 +55,7 @@ class Film(Media):
         super().__init__()
         self.set_title(title)
 
-
+###########################################################################################################
 
 class Contatore:
     def __init__(self, conteggio: int = 0):
@@ -75,7 +75,6 @@ class Contatore:
         elif self.conteggio <= 0:
             print("Non è possibile eseguire la sottrazione")
         
-    
     def get(self):
         return self.conteggio
     
@@ -84,7 +83,7 @@ class Contatore:
         s += f"Conteggio attuale: {self.conteggio}"
         print(s) 
 
- 	
+##################################################################################################################	
 
 class RecipeManager:
     def __init__(self):
@@ -104,14 +103,14 @@ class RecipeManager:
         if recipe_name in self.recipe.keys():
             if ingredient not in self.recipe[recipe_name]:
                 self.ingredients.append(ingredient)
-                return self.recipe[recipe_name]
+                return f"{{'{recipe_name}': {self.ingredients}}}"
         else:
             print("Errore")
 
     def remove_ingredient(self, recipe_name: str, ingredient: str):
         if recipe_name in self.recipe.keys():
             self.ingredients.remove(ingredient)
-            return self.recipe[recipe_name]
+            return f"{{'{recipe_name}': {self.ingredients}}}"
         else:
             print("Errore")
 
@@ -119,13 +118,99 @@ class RecipeManager:
         if recipe_name in self.recipe.keys():
             if old_ingredient in self.recipe[recipe_name]:
                 self.ingredients.remove(old_ingredient)
-                self.ingredients.append(new_ingredient)
-                return self.recipe[recipe_name]
+                self.ingredients.insert(-1,new_ingredient)
+                return f"{{'{recipe_name}': {self.ingredients}}}"
         else:
             print("Errore ingr. no esistente")
         
     def list_recipes(self):
         for x in self.recipe.keys():
-            return x
+            return [x]
 
-       
+    def list_ingredients(self, recipe_name: str):
+        if recipe_name in self.recipe.keys():
+            for _ in self.recipe.items():
+                return self.ingredients
+        return f"{recipe_name} non esiste."
+    
+    def search_recipe_by_ingredient(self, ingredient: str):
+        for k, v in self.recipe.items():
+            if ingredient in v:
+                return f"{{'{k}': {self.ingredients}}}"             
+        
+##############################################################################################################
+
+class Veicolo:
+    
+    def __init__(self, marca: str, modello: str, anno: int):
+        
+        self.marca: str = marca
+        self.modello: str = modello
+        self.anno: int = anno
+    
+    def descrivi_veicolo(self):
+        print(f'Marca: {self.marca}, Modello: {self.modello}, Anno: {self.anno}')
+    
+class Auto(Veicolo):
+    
+    def __init__(self, marca:str, modello: str, anno: int, numero_porte: int):
+        super().__init__(marca, modello, anno)
+        self.numero_porte: int = numero_porte
+    
+    def descrivi_veicolo(self):
+        print(f"Marca: {self.marca}, Modello: {self.modello}, Anno: {self.anno}, Numero di porte: {self.numero_porte}")
+        
+
+class Moto(Veicolo):
+    
+    def __init__(self, marca: str, modello: str, anno: int, tipo: str):
+        super().__init__(marca, modello, anno)
+        self.tipo: str = tipo
+    
+    def descrivi_veicolo(self):
+        print(f"Marca: {self.marca}, Modello: {self.modello}, Anno: {self.anno}, Tipo: {self.tipo}")
+
+###################################################################################################################
+
+class Specie:
+    
+    def __init__(self,popolazione_iniziale: int, tasso_crescita: float):
+        self.popolazione_iniziale: float = popolazione_iniziale
+        self.tasso_crescita: float = tasso_crescita
+
+    def cresci(self) -> float:
+        self.popolazione_iniziale*=(1 + self.tasso_crescita/100)
+        return self.popolazione_iniziale
+    
+    def getDensita(self, area_kmq: float) -> int:
+        densita: float = self.popolazione_iniziale/area_kmq
+        anni: int = 0
+        while densita < 1:
+            anni += 1
+            self.cresci()
+            densita: float = self.popolazione_iniziale/area_kmq
+        
+        return anni 
+                
+    def anni_per_superare(self, altra_specie: 'Specie'):
+        anni: int = 0
+        
+        while anni < 1000:
+            self.cresci()
+            altra_specie.cresci()
+            anni += 1
+            if self.popolazione_iniziale > altra_specie.popolazione_iniziale:
+                return anni
+                
+class BufaloKlingon(Specie):
+    
+    def __init__(self, popolazione_iniziale: int, tasso_crescita: float):
+        super().__init__(popolazione_iniziale, tasso_crescita)
+
+class Elefante(Specie):
+    
+    def __init__(self, popolazione_iniziale: int, tasso_crescita: float):
+        super().__init__(popolazione_iniziale, tasso_crescita)
+    
+##################################################################################################################          
+     
