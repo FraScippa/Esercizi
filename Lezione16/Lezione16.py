@@ -1,8 +1,6 @@
 #Francesca Scippa
 #07-06-2024
 
-
-        
 class Media:
     
     def __init__(self):
