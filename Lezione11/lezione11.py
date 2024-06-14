@@ -83,7 +83,7 @@ class Magazzino:
         if new_prodotto not in self.magazzino:
             self.magazzino.append(new_prodotto)
     
-    def cerca_prodotto(self, nome: str) -> Prodotto:
+    def cerca_prodotto(self, nome: str):
         for prod in self.magazzino:
             if nome == prod.nome:
                 return prod
