@@ -2,49 +2,46 @@
 from film import Film
 
 class Azione(Film):
-    def __init__(self, genere: str, penale: float, id: int, title: str):
+    def __init__(self, id: int, title: str):
         super().__init__(id, title)
-        self.genere: str = "Azione"
-        self.penale: float = 3.00
+        self.__genere: str = "Azione"
+        self.__penale: float = 3.00
     
     def getGenere(self):
-        return self.genere
+        return self.__genere
     
     def getPenale(self):
-        return self.penale
+        return self.__penale
     
-    def calcolaPenaleRitardo(self, ritardo: float):
-        penale: float = self.penale*ritardo
-        return penale
+    def calcolaPenaleRitardo(self, days: float):
+        return self.getPenale()*days
     
 class Commedia(Film):
-    def __init__(self, genere: str, penale: float, id: int, title: str):
+    def __init__(self, id: int, title: str):
         super().__init__(id, title)
-        self.genere: str = "Commedia"
-        self.penale: float = 2.50
+        self.__genere: str = "Commedia"
+        self.__penale: float = 2.50
 
     def getGenere(self):
-        return self.genere
+        return self.__genere
     
     def getPenale(self):
-        return self.penale
+        return self.__penale
     
-    def calcolaPenaleRitardo(self, ritardo: float):
-        penale: float = self.penale*ritardo
-        return penale
+    def calcolaPenaleRitardo(self, days: float):
+        return self.getPenale()*days
     
 class Drama(Film):
-    def __init__(self, genere: str, penale: float, id: int, title: str):
+    def __init__(self, id: int, title: str):
         super().__init__(id, title)
-        self.genere: str = "Drama"
-        self.penale: float = 2.00
+        self.__genere: str = "Drama"
+        self.__penale: float = 2.00
 
     def getGenere(self):
-        return self.genere
+        return self.__genere
     
     def getPenale(self):
-        return self.penale
+        return self.__penale
     
-    def calcolaPenaleRitardo(self, ritardo: float):
-        penale: float = self.penale*ritardo
-        return penale
+    def calcolaPenaleRitardo(self, days: float):
+        return self.getPenale()*days
