@@ -10,21 +10,21 @@ class TestPersona(unittest.TestCase):
         self.persona = Persona("Nicolò", "Di Silvestro")
     
     def test_inizializzazione(self):
-        self.assertEqual(type(self.persona.getName()), str)
-        self.assertEqual(type(self.persona.getLastname()), str)
-        self.assertNotEqual(self.persona.getAge(), 2)
+        self.assertEqual(type(self.persona.getName()), str, 'il nome inserito è una stringa')
+        self.assertEqual(type(self.persona.getLastname()), str, 'il cognome inserito è una stringa')
+        self.assertNotEqual(self.persona.getAge(), 2, "età inserita == 0")
     
     def test_setName(self):
         self.persona.setName("Peppino")
-        self.assertEqual(self.persona.getName(), "Peppino")
+        self.assertEqual(self.persona.getName(), "Peppino", "il nome non coincide")
     
     def test_setLastName(self):
         self.persona.setLastName("Sccalzi")
-        self.assertEqual(self.persona.getLastname(), "Sccalzi")
+        self.assertEqual(self.persona.getLastname(), "Sccalzi", "il cognome non coincide")
     
     def test_setAge(self):
         self.persona.setAge(20)
-        self.assertGreater(self.persona.getAge(), 0)
+        self.assertGreater(self.persona.getAge(), 0, "l'età è minore di 0")
         
 class TestDottore(unittest.TestCase):
     
@@ -32,10 +32,10 @@ class TestDottore(unittest.TestCase):
         self.dottore = Dottore("Chirurgo", 16.50, "Giovannino", "Cicci")
     
     def test_inizializzazione(self):
-        self.assertEqual(type(self.dottore.getSpecialization()), str)
-        self.assertGreater(self.dottore.getParcel(), 0)
-        self.assertEqual(type(self.dottore.getName()), str)
-        self.assertNotEqual(type(self.dottore.getLastname()), int)
+        self.assertEqual(type(self.dottore.getSpecialization()), str, "la specializzazione non è una stringa")
+        self.assertGreater(self.dottore.getParcel(), 0, "la parcella è minore di 0")
+        self.assertEqual(type(self.dottore.getName()), str, "il nome non è una stringa")
+        self.assertNotEqual(type(self.dottore.getLastname()), int, "il cognome non è un intero")
     
     def test_isValidDoctor(self):
         self.assertFalse(self.dottore.isAValidDoctor(), False)
@@ -49,9 +49,9 @@ class TestPaziente(unittest.TestCase):
         self.persona = Persona("Nicolò", "Di Silvestro")
         
     def test_inizializzazione(self):
-        self.assertNotEqual(type(self.paziente.getIdCode()), float)
-        self.assertEqual(type(self.paziente.getName()), str)
-        self.assertIsNotNone(self.paziente.getLastname())
+        self.assertNotEqual(type(self.paziente.getIdCode()), float, "il codice ID deve essere un intero")
+        self.assertEqual(type(self.paziente.getName()), str, "il nome deve essere una stringa")
+        self.assertIsNotNone(self.paziente.getLastname(), "il cognome è diverso da None")
     
 class TestFattura(unittest.TestCase):
     
@@ -63,14 +63,14 @@ class TestFattura(unittest.TestCase):
         self.fattura = Fattura([self.p1],self.doc1)
     
     def test_inizializzazione(self):
-        self.assertEqual(self.fattura.getSalary(), 16.5)
-        self.assertNotEqual(self.fattura.getFatture(), 0)
+        self.assertEqual(self.fattura.getSalary(), 16.5, "il risultato non è corretto")
+        self.assertNotEqual(self.fattura.getFatture(), 0, "il risultato è 0")
         
     def test_modifiche_liste(self):
         self.fattura.addPatient(self.p2)
-        self.assertEqual(self.fattura.patient[1], self.p2)
+        self.assertEqual(self.fattura.patient[1], self.p2, "il paziente non è corretto")
         self.fattura.removePatient("343535")
-        self.assertNotEqual(self.fattura.patient[0], self.p1)
+        self.assertNotEqual(self.fattura.patient[0], self.p1, "il paziente ancora esiste nella lista")
         
 if __name__ == '__main__':
     unittest.main()
