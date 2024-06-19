@@ -1,5 +1,5 @@
 from film import Film
-from movie_genere import Azione, Commedia, Drama
+from movie_genere import Azione, Commedia, Drama #?!?!?!?
 
 class Noleggio:
     def __init__(self, film_list: list[Film], rented_film: dict[int, list[Film]]):
@@ -17,7 +17,7 @@ class Noleggio:
     
     def rentAMovie(self, film: Film, clientID: int):
         self.films: list[Film] = []
-        if self.isAvaible(film) == True: #????
+        if self.isAvailable(film) == True:
             self.film_list.remove(film)
             self.films.append(film)
             self.rented_film[clientID] = self.films

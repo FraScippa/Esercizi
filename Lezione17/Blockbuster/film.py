@@ -22,3 +22,5 @@ class Film:
         if self.__id == otherFilm.getID():
             return True
         
+        
+#abstractclass
