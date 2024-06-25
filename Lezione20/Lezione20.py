@@ -29,6 +29,7 @@ class PagamentoContanti(Pagamento):
         
         new = self.getPagamento()
         print(f"Pagamento in contanti di: €{new}\n{new} euro da pagare in contanti con:")
+        
         while new != 0:
         
             for k,v in self.contanti.items():
@@ -60,9 +61,4 @@ class PagamentoCartaDiCredito(Pagamento):
         s += f"\nData di scadenza: {self.data_scadenza}"
         s += f"\nNumero della carta: {self.numero_carta}"
         print(s)
-
-cont: PagamentoContanti = PagamentoContanti()  
-cont.setPagamento(150)
-cont.inPezziDa()
-
-    
+   
