@@ -1,7 +1,8 @@
 import threading
 import time
+import concurrent.futures
 
-def thread_function(name):
+def thread_function(name: str):
     print(f"Thread {name}: starting at {time.time()}")
     time.sleep(2)
     print(f"Thread {name}: finishing at {time.time()}")
@@ -14,7 +15,7 @@ if __name__ == "__main__":
     print(f"Main : wait for the thread to finish")
     print(f"Main : all done")
 
-threads = list()
+threads: list[threading.Thread] = []
 
 for index in range(3):
     print(f"Main : before running thread")
@@ -22,10 +23,10 @@ for index in range(3):
     threads.append(x)
     x.start()
 
-for index, thread in enumerate(threads):
+for thread in threads:
     print(f"Main : wait the thread to finish")
     thread.join()
     print(f"Main : all done")
 
-#with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
-    #executor.map(thread_function, range(3))
+with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
+    executor.map(thread_function, range(3))
