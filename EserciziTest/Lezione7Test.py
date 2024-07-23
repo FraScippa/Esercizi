@@ -18,7 +18,7 @@ def rotate_left(elements: list[int], k: int) -> list[int]:
     
    return newlist
 
-print(rotate_left([1, 2, 3, 4, 5], 2))
+#print(rotate_left([1, 2, 3, 4, 5], 2))
 
 ###############################################################################################################################################
 
@@ -39,8 +39,8 @@ def merge_dictionaries(dict1: dict[str,int], dict2: dict[str,int]) -> dict[str,i
     
     return dict1
 
-print(merge_dictionaries({'x': 5}, {'x': -5}))
-print(merge_dictionaries({'a': 1, 'b': 2}, {'b': 3, 'c': 4}))
+#print(merge_dictionaries({'x': 5}, {'x': -5}))
+#print(merge_dictionaries({'a': 1, 'b': 2}, {'b': 3, 'c': 4}))
 
 #Scrivi una funzione che elimini dalla lista dati certi elementi specificati in un dizionario. Il dizionario contiene elementi da rimuovere come chiavi e il numero di volte che devono essere rimossi come valori.
 
@@ -129,3 +129,61 @@ def frequency_dict(elements: list[str]) -> dict[str,int]:
 #print(frequency_dict([]))
 #print(frequency_dict(['a', 'b', 'c', 'a', 'b', 'c', 'a']))
 #print(frequency_dict([True, False, True]))
+
+class RecipeManager:
+    
+    def __init__(self):
+        self.diz1: dict[str, list[str]] = {}
+    
+    def create_recipe(self, name: str, ingredients: list[str]) -> dict[str,list[str]]:
+        
+        if name not in self.diz1:
+            self.diz1[name] = ingredients
+            return self.diz1
+        else:
+            return "Errore esiste già"
+        
+    def add_ingredient(self, recipe_name: str, ingredient: str):
+        if recipe_name in self.diz1 and ingredient not in self.diz1[recipe_name]:
+            self.diz1[recipe_name].append(ingredient)
+            return self.diz1
+        else:
+            return "Errore ricetta non esistente o ingrediente già esistente"
+    
+    def remove_ingredient(self, recipe_name: str, ingredient: str):
+        if recipe_name in self.diz1 and ingredient in self.diz1[recipe_name]:
+            self.diz1[recipe_name].remove(ingredient)
+            return self.diz1
+        else:
+            return "Ricetta non trovata o ingrediente non trovato"
+
+    def update_ingredient(self, recipe_name: str, old_ingredient: str, new_ingredient: str):
+        if recipe_name in self.diz1 and old_ingredient in self.diz1[recipe_name]:
+            self.diz1[recipe_name].remove(old_ingredient)
+            self.diz1[recipe_name].insert(-1,new_ingredient)
+            return self.diz1
+        else:
+            return "Errore"
+        
+    def list_recipes(self):
+        for k in self.diz1.keys():
+            return f"['{k}']"
+    
+    def list_ingredients(self, recipe_name: str):
+        if recipe_name in self.diz1:
+            return self.diz1[recipe_name]
+        else:
+            return "Errore"
+    
+    def search_recipe_ny_ingredient(self, ingredient: str):
+        if ingredient in self.diz1:
+            return self.diz1[ingredient]
+        else:
+            return "Errore"
+
+        
+manager = RecipeManager()
+print(manager.create_recipe("Pizza Margherita", ["Farina", "Acqua", "Lievito", "Pomodoro", "Mozzarella"]))
+print(manager.add_ingredient("Pizza Margherita", "Mozzarella"))
+print(manager.remove_ingredient("Pizza Margherita", "Acqua"))
+print(manager.update_ingredient("Pizza Margherita", "Mozzarella", "Mozzarella di Bufala"))
