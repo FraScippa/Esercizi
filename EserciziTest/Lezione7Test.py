@@ -182,8 +182,15 @@ class RecipeManager:
             return "Errore"
 
         
-manager = RecipeManager()
-print(manager.create_recipe("Pizza Margherita", ["Farina", "Acqua", "Lievito", "Pomodoro", "Mozzarella"]))
-print(manager.add_ingredient("Pizza Margherita", "Mozzarella"))
-print(manager.remove_ingredient("Pizza Margherita", "Acqua"))
-print(manager.update_ingredient("Pizza Margherita", "Mozzarella", "Mozzarella di Bufala"))
+
+def lista_a_dizionario(tuples: tuple) -> dict[str:list[int]]:
+    # cancella pass e scrivi il tuo codie
+    dizionario = {}
+    for k, v in tuples:
+        if k in dizionario:
+            dizionario[k].append(v)
+        else:
+            dizionario[k] = [v]
+    return dizionario
+    
+print(lista_a_dizionario([('a', 1), ('b', 2), ('a', 3)]))
